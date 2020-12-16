@@ -92,16 +92,16 @@ In the server's SSH configuration file (usually `~/.ssh/config`), add an alias e
 ```bash
 Host {% if currentVersion == "free-pro-team@latest" %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-0
         Hostname {% if currentVersion == "free-pro-team@latest" %}github.com{% else %}my-GHE-hostname.com{% endif %}
-        IdentityFile=/home/user/.ssh/repo-0_deploy_key
+        IdentityFile /home/user/.ssh/repo-0_deploy_key
 
 Host {% if currentVersion == "free-pro-team@latest" %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-1
         Hostname {% if currentVersion == "free-pro-team@latest" %}github.com{% else %}my-GHE-hostname.com{% endif %}
-        IdentityFile=/home/user/.ssh/repo-1_deploy_key
+        IdentityFile /home/user/.ssh/repo-1_deploy_key
 ```
 
 * `Host {% if currentVersion == "free-pro-team@latest" %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-0` - The repository's alias.
 * `Hostname {% if currentVersion == "free-pro-team@latest" %}github.com{% else %}my-GHE-hostname.com{% endif %}` - Configures the hostname to use with the alias.
-* `IdentityFile=/home/user/.ssh/repo-0_deploy_key` - Assigns a private key to the alias.
+* `IdentityFile /home/user/.ssh/repo-0_deploy_key` - Assigns a private key to the alias.
 
 You can then use the hostname's alias to interact with the repository using SSH, which will use the unique deploy key assigned to that alias. For example:
 
